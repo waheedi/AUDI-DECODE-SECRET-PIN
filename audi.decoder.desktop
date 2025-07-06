@@ -2,7 +2,7 @@
 Type=Application
 Name=EZSDecoder
 Exec=entrypoint.sh
-Icon=application-vnd.appimage
+Icon=
 Terminal=false
 Categories=Utility;
 

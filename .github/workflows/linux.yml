@@ -36,7 +36,6 @@ jobs:
           echo '#!/bin/sh' > appimage-recipe/entrypoint.sh
           echo 'exec "${APPDIR}/python/bin/python3" eeprom.decoder.j518.py "$@"' >> appimage-recipe/entrypoint.sh
           chmod +x appimage-recipe/entrypoint.sh
-          wget -O appimage-recipe/application-vnd.appimage.svg https://upload.wikimedia.org/wikipedia/commons/3/38/OOjs_UI_icon_package.svg
 
       - name: Build AppImage
         run: |
