@@ -39,14 +39,14 @@ jobs:
           chmod +x appimage-recipe/entrypoint.sh
           # Create .desktop file
           cat > appimage-recipe/audi.decoder.desktop <<EOF
-[Desktop Entry]
-Type=Application
-Name=EZSDecoder
-Exec=entrypoint.sh
-Icon=application-vnd.appimage
-Terminal=false
-Categories=Utility;
-EOF
+          [Desktop Entry]
+          Type=Application
+          Name=EZSDecoder
+          Exec=entrypoint.sh
+          Icon=application-vnd.appimage
+          Terminal=false
+          Categories=Utility;
+          EOF
           # Create a dummy icon (replace with a real one if you have)
           wget -O appimage-recipe/application-vnd.appimage.svg https://upload.wikimedia.org/wikipedia/commons/3/38/OOjs_UI_icon_package.svg
 
