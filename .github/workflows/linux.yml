@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libfuse2 python3-tk
-          wget https://github.com/AppImageCrafters/appimage-builder/releases/latest/download/appimage-builder-x86_64.AppImage -O appimage-builder.AppImage
+          wget https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage -O appimage-builder.AppImage
           chmod +x appimage-builder.AppImage
           sudo mv appimage-builder.AppImage /usr/local/bin/appimage-builder
 
