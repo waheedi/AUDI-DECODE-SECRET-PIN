@@ -22,15 +22,10 @@ jobs:
       - name: Install python-appimage tool
         run: pip install python-appimage
 
-      - name: Download Python runtime AppImage
-        run: |
-          wget https://github.com/niess/python-appimage/releases/download/python3.10/python3.10.18-cp310-cp310-manylinux2014_x86_64.AppImage
-          chmod +x python3.10.18-cp310-cp310-manylinux2014_x86_64.AppImage
-
       - name: Prepare AppImage recipe
         run: |
           mkdir -p appimage-recipe
-          echo "tkinter" > appimage-recipe/requirements.txt
+          echo "" > appimage-recipe/requirements.txt  # Leave empty or add only pip packages, NOT tkinter!
           cp eeprom.decoder.j518.py appimage-recipe/
           cp audi.decoder.desktop appimage-recipe/
           echo '#!/bin/sh' > appimage-recipe/entrypoint.sh
@@ -40,7 +35,7 @@ jobs:
       - name: Build AppImage
         run: |
           python-appimage build app \
-            -p ./python3.10.18-cp310-cp310-manylinux2014_x86_64.AppImage \
+            -p 3.10 \
             appimage-recipe
 
       - name: List files
