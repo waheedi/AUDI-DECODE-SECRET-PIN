@@ -9,6 +9,7 @@ This project is created as part of the effort spent to populate my PIN code from
 * Reads and decodes EEPROM binary dump
 * Extracts VIN, PIN, Component Security bytes (CS1/CS2), MACs, Power Class
 * Lists up to 4 stored EZS keys and key count
+* WOrks on VAG cars between 2004 and 2012 (mostly)
 
 #### No Need For:
 
