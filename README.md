@@ -15,6 +15,7 @@ This project is created as part of the effort spent to populate my PIN code from
 
 * OBD tools
 * Third-party commercial software
+* Hardware
 
 #### Sample (Anonymized) EEPROM Header:
 
