@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install python-appimage tool
         run: pip install python-appimage
@@ -40,7 +40,7 @@ jobs:
       - name: Build AppImage
         run: |
           python-appimage build app \
-            -p ./python3.11.8-cp311-cp311-manylinux2014_x86_64.AppImage \
+            -p ./python3.10.18-cp310-cp310-manylinux2014_x86_64.AppImage \
             appimage-recipe
 
       - name: List files
