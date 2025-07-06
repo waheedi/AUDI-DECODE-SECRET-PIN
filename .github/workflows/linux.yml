@@ -1,0 +1,52 @@
+name: Build Linux AppImage
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install system deps
+        run: sudo apt-get install -y python3-tk appimage-builder
+
+      - name: Install pip deps
+        run: pip install pyinstaller
+
+      - name: Build binary
+        run: pyinstaller --noconfirm --onefile --windowed eeprom.decoder.j518.py
+
+      - name: Prepare AppDir
+        run: |
+          mkdir -p AppDir/usr/bin
+          cp dist/eeprom.decoder.j518 AppDir/usr/bin/decoder
+
+      - name: Build AppImage
+        run: |
+          echo '
+          version: 1
+          AppDir:
+            path: ./AppDir
+            app_info:
+              id: audi.decoder
+              name: EZSDecoder
+              exec: usr/bin/decoder
+              icon: utilities-terminal
+              version: "1.0"
+          ' > recipe.yml
+          appimage-builder --recipe recipe.yml
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: eeprom-decoder-linux
+          path: EZSDecoder*.AppImage
+
