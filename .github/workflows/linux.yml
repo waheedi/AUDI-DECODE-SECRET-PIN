@@ -31,23 +31,11 @@ jobs:
         run: |
           mkdir -p appimage-recipe
           echo "tkinter" > appimage-recipe/requirements.txt
-          # Copy your main script
           cp eeprom.decoder.j518.py appimage-recipe/
-          # Create entrypoint.sh
+          cp audi.decoder.desktop appimage-recipe/
           echo '#!/bin/sh' > appimage-recipe/entrypoint.sh
-          echo 'exec "\${APPDIR}/python/bin/python3" eeprom.decoder.j518.py "$@"' >> appimage-recipe/entrypoint.sh
+          echo 'exec "${APPDIR}/python/bin/python3" eeprom.decoder.j518.py "$@"' >> appimage-recipe/entrypoint.sh
           chmod +x appimage-recipe/entrypoint.sh
-          # Create .desktop file
-          cat > appimage-recipe/audi.decoder.desktop <<EOF
-          [Desktop Entry]
-          Type=Application
-          Name=EZSDecoder
-          Exec=entrypoint.sh
-          Icon=application-vnd.appimage
-          Terminal=false
-          Categories=Utility;
-          EOF
-          # Create a dummy icon (replace with a real one if you have)
           wget -O appimage-recipe/application-vnd.appimage.svg https://upload.wikimedia.org/wikipedia/commons/3/38/OOjs_UI_icon_package.svg
 
       - name: Build AppImage
@@ -62,7 +50,7 @@ jobs:
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: *.AppImage
+          files: '*.AppImage'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
