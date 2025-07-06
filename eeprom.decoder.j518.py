@@ -41,7 +41,7 @@ def read_eeprom(path):
 
     # Power class
     pc = get(0x160, 1)
-    result.append(f"Power Class: {hex_to_dec(pc)}")
+    result.append(f"Power Class: {pc}")
 
     # Keys
     result.append(f"EZS KEY0: {get(0x17C, 4)}")
@@ -51,7 +51,7 @@ def read_eeprom(path):
 
     # Key count
     kc = get(0x1BE, 1)
-    result.append(f"EZS Key Count: {hex_to_dec(kc)}")
+    result.append(f"EZS Key Count: {kc}")
 
     return "\n".join(result)
 
