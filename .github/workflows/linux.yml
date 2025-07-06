@@ -35,7 +35,7 @@ jobs:
       - name: Prepare AppDir
         run: |
           mkdir -p AppDir/usr/bin
-          cp dist/eeprom.decoder.j518 AppDir/usr/bin/decoder
+          cp dist/eeprom.decoder.j518 AppDir/usr/bin/eeprom.decoder
 
       - name: Build AppImage
         run: |
@@ -46,9 +46,8 @@ jobs:
             app_info:
               id: audi.decoder
               name: EZSDecoder
-              exec: usr/bin/decoder
-              icon: utilities-terminal
-              version: "1.0"
+              exec: usr/bin/eeprom.decoder
+              version: "1.1"
           ' > recipe.yml
           appimage-builder --recipe recipe.yml
 
