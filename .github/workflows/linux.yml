@@ -4,6 +4,10 @@ on:
   push:
     tags:
       - "v*"
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,6 +40,20 @@ jobs:
         run: |
           mkdir -p AppDir/usr/bin
           cp dist/eeprom.decoder.j518 AppDir/usr/bin/eeprom.decoder
+
+      - name: Add desktop entry
+        run: |
+          mkdir -p AppDir/usr/share/applications
+          cat > AppDir/audi.decoder.desktop <<EOF
+          [Desktop Entry]
+          Type=Application
+          Name=EZSDecoder
+          Exec=eeprom.decoder
+          Icon=application-vnd.appimage
+          Terminal=false
+          Categories=Utility;
+          EOF
+          cp AppDir/audi.decoder.desktop AppDir/usr/share/applications/audi.decoder.desktop
 
       - name: Build AppImage
         run: |
