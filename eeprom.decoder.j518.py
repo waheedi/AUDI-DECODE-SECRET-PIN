@@ -50,7 +50,7 @@ def read_eeprom(path):
     result.append(f"EZS KEY3: {get(0x188, 4)}")
 
     # Key count
-    kc = get(0x1BE, 1)
+    kc = get(0x1B8, 1)
     result.append(f"EZS Key Count: {kc}")
 
     return "\n".join(result)
