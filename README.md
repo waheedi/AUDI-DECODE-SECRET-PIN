@@ -34,6 +34,11 @@ This project is created as part of the effort spent to populate my PIN code from
 
 ---
 
-For GUI version, we use Python and `tkinter` to allow drag-n-drop EEPROM decoding across platforms (Linux & Windows), with GitHub Actions pipeline that builds `.exe` and AppImage artifacts automatically.
+For GUI version, we use Python and `tkinter` to allow drag-n-drop EEPROM decoding across platforms (Linux & Windows), with GitHub Actions pipeline that builds `.exe
 
+For running GUI in linux:
+
+```
+python eeprom.decoder.j518.py
+```
 
