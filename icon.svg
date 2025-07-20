@@ -1,0 +1,4 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg">
+ <rect width="256" height="256" rx="40" fill="#333"></rect>
+ <text x="50%" y="54%" text-anchor="middle" fill="#fff" font-family="Arial" font-size="80" dy=".3em">EZS</text>
+</svg>
