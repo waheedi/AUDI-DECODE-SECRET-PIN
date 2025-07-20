@@ -4,4 +4,4 @@ Name=EZSDecoder
 Exec=entrypoint.sh
 Terminal=false
 Categories=Utility;
-
+Icon=icon

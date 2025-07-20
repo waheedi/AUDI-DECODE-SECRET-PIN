@@ -27,6 +27,7 @@ jobs:
           mkdir -p appimage-recipe
           echo "" > appimage-recipe/requirements.txt  # Leave empty or add only pip packages, NOT tkinter!
           cp eeprom.decoder.j518.py appimage-recipe/
+          cp icon.svg appimage-recipe/
           cp audi.decoder.desktop appimage-recipe/
           echo '#!/bin/sh' > appimage-recipe/entrypoint.sh
           echo 'exec "${APPDIR}/python/bin/python3" eeprom.decoder.j518.py "$@"' >> appimage-recipe/entrypoint.sh
